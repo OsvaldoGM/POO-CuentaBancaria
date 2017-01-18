@@ -10,23 +10,30 @@ package poo.tarea1;
  * @author Osvaldo
  */
 public class CuentaBancaria {
+    //Aqui se definen todos los atributos que llevara esta clase
     private String nombre;
+    //La clave aunque lleve numeros debe ser String porque tambien contiene caracteres
     private String claveInterbancaria;
-    private int numeroDeCuenta;
+    //El atributo numeroDeCuenta debe ser String aunque sean solo numeros
+    private String numeroDeCuenta;
     private double Saldo;
+    //El interes es el que se genera a favor por tener el dinero en el banco
     private double interes;
     private String fechaDeCorte;
     
     public CuentaBancaria(){
         nombre = "Osvaldo Gabriel Gonzalez Martinez";
+        //Se le dan valores iniciales a los atributos
         claveInterbancaria = "OGGM007";
-        numeroDeCuenta = 0216513;
+        numeroDeCuenta = "0216513";
         Saldo = 1945655.615;
+        //El interes es porcentual
         interes = 3.2;
         fechaDeCorte = "28 de Enero";
     }
     
-    public CuentaBancaria (String nombre, String claveInterbancaria, int numeroDeCuenta, double Saldo, double interes, String fechaDeCorte){
+    public CuentaBancaria (String nombre, String claveInterbancaria, String numeroDeCuenta, double Saldo, double interes, String fechaDeCorte){
+        //Lo que obtenemos en este metodo los igualamos a cada instancia correspondiente
         this.nombre = nombre;
         this.claveInterbancaria = claveInterbancaria;
         this.numeroDeCuenta = numeroDeCuenta;
@@ -34,7 +41,7 @@ public class CuentaBancaria {
         this.interes = interes;
         this.fechaDeCorte = fechaDeCorte;
     }
-    // color Getter and Setter
+    //Getter and Setter
     public String obtenNombre(){
         return nombre;
     }
@@ -57,13 +64,13 @@ public class CuentaBancaria {
             this.claveInterbancaria = claveInterbancaria;
         }
     }
-    public int obtenNumeroDeCuenta(){
+    public String obtenNumeroDeCuenta(){
         return numeroDeCuenta;
     }
-    
-    public void ponNumeroDeCuenta(int numeroDeCuenta){
-        if(numeroDeCuenta <=0){
-            this.claveInterbancaria = "Numero de cuenta no valida";
+    //Ademas de pedir el numero de cuenta hay que observar si viene llena correctamente
+    public void ponNumeroDeCuenta(String numeroDeCuenta){
+        if((numeroDeCuenta == null) || (numeroDeCuenta == "")){
+            this.numeroDeCuenta = "Numero de cuenta no valida";
         }else{
             this.numeroDeCuenta = numeroDeCuenta;
         }
@@ -71,7 +78,7 @@ public class CuentaBancaria {
     public double obtenSaldo(){
         return Saldo;
     }
-    
+    //Cuando ya obtenemos lo que se pide se le asigna al atributo correspondiente
     public void ponSaldo(double Saldo){
         this.Saldo = Saldo;
     }
